@@ -1,10 +1,10 @@
-import cv2
 import os
 import numpy as np
 import pandas as pd
 from deepface import DeepFace
 from mtcnn import MTCNN
 from time import sleep
+import cv2
 
 DATASET_DIR = 'user_faces'
 EMBEDDINGS_FILE = 'all_embeddings.csv'
@@ -153,7 +153,7 @@ def recognize_realtime():
             print("Cannot read camera frame.")
             break
         faces = detector.detect_faces(frame)
-        displayed = "No face detected"
+        displayed = "No face detected, try in better lighting."
         if faces:
             x, y, w, h = faces[0]['box']
             x, y = max(0, x), max(0, y)
